@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DST-CIMS BHU — CIMS Sage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <button id="chat-toggle-btn" aria-label="Open CIMS Sage" onclick="toggleChat()">
+    <div id="unread-dot"></div>
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C6.477 2 2 6.268 2 11.5c0 2.516.987 4.797 2.604 6.478L3 21.5l3.852-1.302A10.057 10.057 0 0012 21c5.523 0 10-4.268 10-9.5S17.523 2 12 2z" fill="white" fill-opacity="0.92"/>
+      <circle cx="8" cy="11.5" r="1.3" fill="#6B1A1A"/>
+      <circle cx="12" cy="11.5" r="1.3" fill="#6B1A1A"/>
+      <circle cx="16" cy="11.5" r="1.3" fill="#6B1A1A"/>
+    </svg>
+  </button>
+  <div id="chat-window" role="dialog">
+    <div id="chat-header">
+      <div id="header-logo">🎓</div>
+      <div id="header-text">
+        <div id="header-title">CIMS Sage</div>
+        <div id="header-sub1">DST-Centre for Interdisciplinary Mathematical Sciences</div>
+        <div id="header-sub2"><span class="status-dot"></span> Online · BHU</div>
+      </div>
+      <button id="close-btn" onclick="toggleChat()">✕</button>
+    </div>
+    <div id="messages" role="log" aria-live="polite"></div>
+    <div id="quick-replies">
+      <button class="quick-btn" onclick="sendQuick('What courses does CIMS offer?')">📚 Courses</button>
+      <button class="quick-btn" onclick="sendQuick('How do I apply to CIMS?')">📋 Admissions</button>
+      <button class="quick-btn" onclick="sendQuick('What is the fee for MSc Statistics and Computing?')">💰 Fees</button>
+      <button class="quick-btn" onclick="sendQuick('Who are the faculty members at CIMS?')">👨‍🏫 Faculty</button>
+      <button class="quick-btn" onclick="sendQuick('What is the eligibility criteria?')">✅ Eligibility</button>
+      <button class="quick-btn" onclick="sendQuick('What research areas does CIMS focus on?')">🔬 Research</button>
+    </div>
+    <div id="chat-input-area">
+      <textarea id="user-input" placeholder="Ask CIMS Sage anything…" rows="1" onkeydown="handleKeyDown(event)" oninput="autoResize(this)"></textarea>
+      <button id="send-btn" onclick="sendMessage()">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 2L11 13" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <div id="chat-footer">
+      Powered by Gemini AI &nbsp;·&nbsp;
+      <a href="https://www.bhu.ac.in/Site/UnitHomeTemplate/1_233_3536_DST-Centre-for-Interdisciplinary-Mathematical-Sciences-Home" target="_blank">Official DST-CIMS Site</a>
+    </div>
+  </div>
+  <script src="/static/script.js"></script>
+</body>
+</html>
